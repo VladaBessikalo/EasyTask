@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, computed, Input, input } from '@angular/core';
+
+// Input - decorator, input - special fn
 
 @Component({
   selector: 'app-user',
@@ -14,6 +16,14 @@ export class UserComponent {
   get imagePath() {
     return 'assets/users/users/' + this.avatar;
   }
+
+  // Signal approach
+  // avatar = input.required<string>();
+  // name = input.required<string>();
+
+  // imagePath = computed(() => {
+  //   return 'assets/users/users/' + this.avatar();
+  // });
 
   onSelectUser() {}
 }
