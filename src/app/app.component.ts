@@ -13,4 +13,8 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   users = DUMMY_USERS;
+
+  onSelectUser(id: string) {
+    console.log('selected user with id', id);
+  }
 }
