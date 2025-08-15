@@ -5,9 +5,10 @@ import {
   Input,
   input,
   Output,
+  output,
 } from '@angular/core';
 
-// Input - decorator, input - special fn
+// Input - decorator, input - special fn (the same with Output and output)
 // select - in Output could be named according to the action (can use any name)
 
 @Component({
@@ -22,7 +23,7 @@ export class UserComponent {
   @Input({ required: true }) avatar!: string;
   @Input({ required: true }) name!: string;
 
-  @Output() select = new EventEmitter();
+  @Output() select = new EventEmitter<string>();
 
   get imagePath() {
     return 'assets/users/users/' + this.avatar;
@@ -31,6 +32,7 @@ export class UserComponent {
   // Signal approach
   // avatar = input.required<string>();
   // name = input.required<string>();
+  // select = output<string>();
 
   // imagePath = computed(() => {
   //   return 'assets/users/users/' + this.avatar();
