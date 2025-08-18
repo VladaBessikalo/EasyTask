@@ -7,12 +7,7 @@ import {
   Output,
   output,
 } from '@angular/core';
-
-interface User {
-  id: string;
-  name: string;
-  avatar: string;
-}
+import { User } from './user.model';
 
 // Input - decorator, input - special fn (the same with Output and output)
 // select - in Output could be named according to the action (can use any name)
