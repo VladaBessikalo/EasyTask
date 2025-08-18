@@ -8,10 +8,6 @@
       <app-user [user]="user" (select)="onSelectUser($event)" />
     </li>
     }
-    <!-- Another approach (old)
-    <li *ngFor="let user of users">
-      <app-user [user]="user" (select)="onSelectUser($event)" />
-    </li> -->
   </ul>
   @if (selectedUser) {
   <app-tasks [name]="selectedUser.name" />
