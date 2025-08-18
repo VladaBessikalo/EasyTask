@@ -8,6 +8,12 @@ import {
   output,
 } from '@angular/core';
 
+interface User {
+  id: string;
+  name: string;
+  avatar: string;
+}
+
 // Input - decorator, input - special fn (the same with Output and output)
 // select - in Output could be named according to the action (can use any name)
 
@@ -19,14 +25,11 @@ import {
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-  @Input({ required: true }) id!: string;
-  @Input({ required: true }) avatar!: string;
-  @Input({ required: true }) name!: string;
-
+  @Input({ required: true }) user!: User;
   @Output() select = new EventEmitter<string>();
 
   get imagePath() {
-    return 'assets/users/users/' + this.avatar;
+    return 'assets/users/users/' + this.user.avatar;
   }
 
   // Signal approach
@@ -39,6 +42,6 @@ export class UserComponent {
   // });
 
   onSelectUser() {
-    this.select.emit(this.id);
+    this.select.emit(this.user.id);
   }
 }

@@ -2,14 +2,20 @@
 
 <main>
   <ul id="users">
-    <li *ngFor="let user of users">
-      <app-user
-        [id]="user.id"
-        [avatar]="user.avatar"
-        [name]="user.name"
-        (select)="onSelectUser($event)"
-      />
+    <!--track user.id - helps Angular updates list in the high efficient way-->
+    @for (user of users; track user.id) {
+    <li>
+      <app-user [user]="user" (select)="onSelectUser($event)" />
     </li>
+    }
+    <!-- Another approach (old)
+    <li *ngFor="let user of users">
+      <app-user [user]="user" (select)="onSelectUser($event)" />
+    </li> -->
   </ul>
-  <app-tasks [name]="selectedUser ? selectedUser.name : ''" />
+  @if (selectedUser) {
+  <app-tasks [name]="selectedUser.name" />
+  } @else {
+  <p id="fallback">Select a user to see their task</p>
+  }
 </main>
