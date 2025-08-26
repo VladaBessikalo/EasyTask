@@ -8,6 +8,7 @@ import {
   output,
 } from '@angular/core';
 import { User } from './user.model';
+import { CardComponent } from '../shared/card/card.component';
 
 // Input - decorator, input - special fn (the same with Output and output)
 // select - in Output could be named according to the action (can use any name)
@@ -15,7 +16,7 @@ import { User } from './user.model';
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [],
+  imports: [CardComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css',
 })
